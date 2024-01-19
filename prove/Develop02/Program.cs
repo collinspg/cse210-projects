@@ -87,9 +87,5 @@ class Program
             journal.SaveToCsv(fileName);
             Console.WriteLine("Journal saved!\n");
         }
-    
-        // // Save and load from file (plain text format)
-        // journal.SaveToFile("journal.txt");
-        // journal.LoadFromFile("journal.txt");
     }
 }
