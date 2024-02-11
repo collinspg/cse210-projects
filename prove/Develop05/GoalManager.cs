@@ -121,19 +121,20 @@ class GoalManager
     }
 
     public void RecordEvent()
+{
+    Console.WriteLine("Enter the number of the goal to record an event for:");
+
+    if (int.TryParse(Console.ReadLine(), out int goalNumber) && goalNumber >= 1 && goalNumber <= goals.Count)
     {
-        Console.WriteLine("Enter the index of the goal to record an event for:");
-        if (int.TryParse(Console.ReadLine(), out int index) && index >= 0 && index < goals.Count)
-        {
-            goals[index].RecordEvent();
-            score += goals[index].GetPoints();
-            Console.WriteLine("Event recorded successfully!");
-        }
-        else
-        {
-            Console.WriteLine("Invalid index. Please enter a valid index.");
-        }
+        goals[goalNumber - 1].RecordEvent();
+        Console.WriteLine("Event recorded successfully!");
     }
+    else
+    {
+        Console.WriteLine("Invalid goal number. Please enter a valid number.");
+    }
+}
+
 
     public void SaveGoalsToFile(string filename)
     {
