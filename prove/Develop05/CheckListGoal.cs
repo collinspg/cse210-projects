@@ -86,6 +86,8 @@ class ChecklistGoal : Goal
 
     public override string DisplayGoalDetails()
     {
+
+        
         string status = IsComplete() ? "[X]" : "[ ]";
         string checklistStatus = $"---- Currently Completed: {itemStatus.Values.Count(s => s)}/{requiredTimes}";
 
