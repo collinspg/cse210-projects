@@ -28,6 +28,7 @@ class EternalGoal : Goal
     }
 
     public override void RecordEvent()
+    
     {
         Console.WriteLine($"Recording event for Eternal Goal: {name}");
         points += 100;
