@@ -42,6 +42,7 @@ class Goal
         string status = IsComplete() ? "[X]" : "[ ]";
         return $"{status} {name} ({description})";
     }
+    
 
     public virtual string SaveGoalToString()
     {
