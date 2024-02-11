@@ -18,9 +18,9 @@ class SimpleGoal : Goal
     }
 
     public override bool IsComplete()
-    {
-        return complete;
-    }
+{
+    return complete;
+}
 
     public override int GetPoints()
     {
