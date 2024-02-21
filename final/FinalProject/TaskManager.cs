@@ -13,12 +13,12 @@ public class TaskManager
 
     public void AddTask(Task task)
     {
-        // Work-in-progress: Implementing Task addition
+        tasks.Add(task);
     }
 
     public void DisplayAllTasks()
     {
-        // Work-in-progress: Implementing Task display
+        foreach (var task in tasks)
         {
             task.DisplayTaskDetails();
             Console.WriteLine();
@@ -32,9 +32,13 @@ public class TaskManager
 
     public void UpdateTask(string title, Task updatedTask)
     {
-        // Work-in-progress: Implementing Task update
+        Task taskToUpdate = tasks.Find(t => t.Title.Equals(title));
+        if (taskToUpdate != null)
         {
-           // Work-in-progress: Implementing Task update
+            taskToUpdate.Title = updatedTask.Title;
+            taskToUpdate.Description = updatedTask.Description;
+            taskToUpdate.Deadline = updatedTask.Deadline;
+            taskToUpdate.Priority = updatedTask.Priority;
         }
     }
 
@@ -49,19 +53,35 @@ public class TaskManager
 
     public void SortTasks(int sortOption)
     {
-       // Work-in-progress: Implementing Task sorting
+        switch (sortOption)
         {
-           // Work-in-progress: Implementing Task sorting
+            case 1:
+                tasks = tasks.OrderBy(t => t.Priority).ToList();
+                break;
+            case 2:
+                tasks = tasks.OrderBy(t => t.Deadline).ToList();
+                break;
+            default:
+                break;
         }
     }
 
     public List<Task> FilterTasks(int filterOption)
     {
-        // Work-in-progress: Implementing Task filtering
+        List<Task> filteredTasks = new List<Task>();
+
+        switch (filterOption)
         {
-            // Work-in-progress: Implementing Task filtering
+            case 1:
+                filteredTasks = tasks.Where(t => t.Priority.Equals("High")).ToList();
+                break;
+            case 2:
+                filteredTasks = tasks.Where(t => t.Deadline.Date == DateTime.Now.Date).ToList();
+                break;
+            default:
+                break;
         }
 
-       // Work-in-progress: Implementing Task filtering
+        return filteredTasks;
     }
 }
